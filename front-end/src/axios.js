@@ -1,4 +1,4 @@
 import axios from 'axios';
 export const HTTP = axios.create({
-baseURL: 'http://10.0.142.187:3000/',
+baseURL: 'http://ec2-13-214-81-88.ap-southeast-1.compute.amazonaws.com/',
 });
