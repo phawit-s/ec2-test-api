@@ -10,7 +10,7 @@ stages {
     stage('Download dependency') {
        steps {
            dir('front-end') {
-              echo "jim"
+              echo "jorobim"
            }
        }
    }
