@@ -11,7 +11,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', (req, res) => {
-    res.json({text:"Hello Backend"})
+    res.json({text:"Hello Jorobim"})
   })
 
 app.listen(3000, function () {
