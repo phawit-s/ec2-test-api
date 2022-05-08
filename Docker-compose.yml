@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  front-end:
+    image: macsakarn/devtool-front:1.0.0
+    build: ./front-end
+    ports:
+      - "3000:80"
+  backend:
+    image: macsakarn/devtool-back:1.0.0
+    build: ./back-test/app
+    ports:
+      - "4000:3000"
