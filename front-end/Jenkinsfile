@@ -10,10 +10,36 @@ stages {
     stage('Download dependency') {
        steps {
            dir('front-end') {
-              echo "joro"
+              echo 'npm install'
            }
        }
    }
+    stage('Download dependency') {
+       steps {
+           dir('front-end') {
+              echo 'npm run build'
+           }
+       }
+   }
+    stage('Deployment') {
+        steps{
+                withCredentials([string(credentialsId: 'hostip', variable: 'ip'), string(credentialsId: 'username', variable: 'name'), string(credentialsId: 'password', variable: 'pass')]) {
+                script {
+                def remote = [:]
+                remote.name = 'T09'
+                remote.host = "${ip}"
+                remote.user = "${name}"
+                remote.password = "${pass}"
+                remote.allowAnyHosts = true
+                sshCommand remote: remote, command: "git clone https://github.com/phawit-s/ec2-test-api"
+                sshCommand remote: remote, command: "docker-compose -f ec2-test-api/docker-compose.yml up -d"
+                sshCommand remote: remote, command: "rm -r ec2-test-api"
+                    
+                }
+          
+               }
+        }       
+      }
   
   }
 }
