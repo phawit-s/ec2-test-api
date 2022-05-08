@@ -1,12 +1,12 @@
 version: '3.8'
 services:
-  frontend:
-    image: phawit/devtool-compose-front:1.0.0
+  front-end:
+    image: phawit/devtool-front:1.0.0
     build: ./front-end
     ports:
       - "3000:80"
   backend:
-    image: phawit/devtool-compose-back:1.0.0
+    image: phawit/devtool-back:1.0.0
     build: ./back-test/app
     ports:
-      - "2000:3000"
+      - "4000:3000"
