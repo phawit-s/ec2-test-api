@@ -14,7 +14,7 @@ stages {
            }
        }
    }
-    stage('Download dependency') {
+    stage('Build') {
        steps {
            dir('front-end') {
               echo 'npm run build'
